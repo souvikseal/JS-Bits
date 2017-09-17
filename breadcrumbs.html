@@ -1,0 +1,41 @@
+<html>
+<body>
+<script type="text/javascript">
+function getURL (str)
+ {
+		return 'google.com';
+ }
+</script>
+<script type="text/javascript">
+
+	 var crumb = 'home,sub-menu,sub-menu-menu';
+	 var stop = 0;
+	 var x = 0;
+	 var start = 0 ;
+	 var op='';
+         bits = new Object;
+
+	 while(!stop)
+	 {
+	    start = crumb.indexOf(",");
+	    if (start != -1)
+	    {
+	      bits[x] = crumb.substring(0,start);
+	      crumb = crumb.substring (start+1,crumb.length);
+	    }
+	    else
+	    {
+	        stop = 1;
+	    }
+	    x++;
+	}
+
+        for(var j in bits)
+	{
+		 op += '<a href = ' + getURL (bits[j]) + '>' + bits[j] + '</a>' + '  :  ';
+	}
+ document.write(op);
+</script>
+
+</body>
+</html>
